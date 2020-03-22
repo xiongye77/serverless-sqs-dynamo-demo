@@ -9,6 +9,8 @@ phases:
     commands:
       - npm install
       - pip install aws-sam-cli
+      - aws s3 rb s3://babylon-dump-2 --force
+      - aws s3 rb s3://babylon-dump-3 --force
   build:
     commands:    
       - sam validate --template template.yaml
