@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:    
+      - sam validate --template template.yaml
+      - sam build --template template.yaml
+      - sam package   --output-template-file packaged.yaml    --s3-bucket $BUILD_OUTPUT_BUCKET
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUILD_OUTPUT_BUCKET --output-template-file packaged.yaml
+artifacts:
+  files:
+    - packaged.yaml
+  discard-paths: yes
