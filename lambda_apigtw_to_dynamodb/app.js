@@ -81,7 +81,7 @@ exports.postMessage = async (event, context) => {
     }
 
     let parsedBody = JSON.parse(event.body);
-
+    // ? event.body : JSON.parse(event.body)
     params = {
         TableName: tableName,
         Item: parsedBody.Item
