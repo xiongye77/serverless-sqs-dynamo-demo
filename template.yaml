@@ -14,7 +14,7 @@ Parameters:
   DataBucketName:
     Type: String
     Description: S3 bucket where CSV files are placed
-    Default: babylon-dump-1
+    Default: babylon-dump-2
 Resources:
   DemoServerlessApi:
     Type: AWS::Serverless::Api
